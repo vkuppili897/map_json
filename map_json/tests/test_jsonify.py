@@ -24,7 +24,6 @@ class TestJsonify:
         mapped_dict = data.get(keystr=key, default=None, return_default=True)
         assert mapped_dict == {"0": 1}
 
-print("testing TestJSONMapper")
 
 if __name__ == '__main__':
     pytest.main()
