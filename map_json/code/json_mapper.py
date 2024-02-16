@@ -13,3 +13,4 @@ def map(data: dict | str, key, to_type=None, split_by: str = ".", default=None, 
         else:
             value = map_value(value=value, to_type=to_type, name=name)
     return {name: value}
+ 
