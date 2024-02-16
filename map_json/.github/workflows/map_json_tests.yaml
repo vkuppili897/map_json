@@ -5,7 +5,7 @@ on:
       - main
       - test
     paths:
-      - tests/**
+      - 'map_json/tests/**'
 
 jobs:
   build:
@@ -22,12 +22,10 @@ jobs:
         with:
           python-version: '3.10'
       - name: Install dependencies
-        working-directory: ./Code/LambdaFunctions/${{matrix.child_lambda_dir}}
         run: |
-          echo "pwd : $(pwd)"
           python -m pip install --upgrade pip
-          python -m pip install -r /requirements.txt
+          if [ -f requirements.txt ]; then python -m pip install -r requirements.txt; fi
       - name: Test with pytest
-        working-directory: ./tests
+        working-directory: map_json/tests
         run: |
           pytest -v
